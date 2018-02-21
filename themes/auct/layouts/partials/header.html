@@ -1,0 +1,64 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{if .Title }}{{ .Title}}{{else}}{{ .Site.Title }}{{end}}</title>
+<meta name="description" content="{{if .Description }}{{.Description}}{{else}}{{.Site.Params.description}}{{end}}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="{{.Site.BaseURL}}style.css?v2" rel="stylesheet">
+<style id="style">
+a {color:#b91d47;}
+section a:hover, aside a:hover{color:#fff; background:#b91d47;}
+input[name=sa] {background:#b91d47;}
+nav a {background:#b91d47;}
+.active, nav a:hover{color:#b91d47; background:#fff;}
+input[type=text]{border:1px solid #b91d47;}
+.btn, .reverse {background: #b91d47;}
+.reverse:hover {color: #b91d47; background:#fff}
+</style>
+<script>
+var style = document.getElementById("style");
+var current_color = localStorage.getItem("color") || 0;
+if (current_color) {
+    changeColor(current_color);
+}
+
+function changeColor(color) {
+    style.innerHTML = "a {color:"+color+";} section a:hover, aside a:hover{color:#fff; background:"+color+";} input[name=sa] {background:"+color+";} nav a {background:"+color+";} nav a:hover, .active{color:"+color+"; background:#fff;} input[type=text]{border:1px solid "+color+";} .btn, .reverse {background: "+color+";} .reverse:hover {color: "+color+"; background:#fff}";
+    localStorage.setItem("color", color);    
+}
+</script>
+<div class="wrap">
+<header>
+<h1><a href="{{.Site.BaseURL}}" title="Return to the homepage">{{.Site.Title}}</a></h1>
+</header>
+<nav class="links">
+<a href="{{.Site.BaseURL}}" id="js-home">Home</a>
+<a href="{{.Site.BaseURL}}tags/articles/" id="js-articles">Articles</a>
+<a href="{{.Site.BaseURL}}tags/tutorials/" id="js-tutorials">Tutorials</a>
+<a href="{{.Site.BaseURL}}tags/projects/" id="js-projects">Projects</a>
+<a href="/about/" id="js-about">About</a>
+</nav>
+<script>
+switch(window.location.pathname) {
+    case '/tags/articles/':
+		var d = document.getElementById('js-articles');
+		d.className = d.className + ' active';
+        break;
+    case '/tags/tutorials/':
+        var d = document.getElementById('js-tutorials');
+		d.className = d.className + ' active';
+        break;
+	case '/tags/projects/':
+        var d = document.getElementById('js-projects');
+		d.className = d.className + ' active';
+        break;
+	case '/about/':
+        var d = document.getElementById('js-about');
+		d.className = d.className + ' active';
+        break;
+	case '/':
+        var d = document.getElementById('js-home');
+		d.className = d.className + ' active';
+        break;
+}
+</script>

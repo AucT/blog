@@ -1,0 +1,68 @@
++++
+date = "2014-01-17T16:06:53+03:00"
+title = "Javascript Key Code Table"
+tags = ["javascript", "articles", "tutorials"]
++++
+
+
+<html><head><title>JavaScript Character Table Generater</title></head>
+
+
+
+<body><script LANGUAGE="JavaScript">
+
+
+
+<!-- Original:  Jim Shook  (krell@pruam.com)  3/1/2000 -->
+
+
+
+<!-- Begin // Browsers tested: Microsoft Internet Explorer V4.0 & V5.0
+
+           //                  Netscape Communicator       V4.5 & V4.7
+
+
+
+var num1;  var strg1 = '<td align=center bgcolor="#ffff00">';
+
+var num2;  var strg2 = '</td><td align=center>&#';
+
+
+
+document.write('<center><b><i><font size=+2 color="#777777">');
+
+document.write('Browser Character Set</font></i></b></center>');
+
+document.write('<center><table bgcolor="#ffffc0" border=10>');
+
+
+
+for (num1 = 32; num1 <= 63; num1++) {
+
+  document.write('<tr>');
+
+  for (num2 = num1; num2 <= num1+192; num2 += 32) {
+
+    document.write(strg1 + num2 + strg2 + num2 + ';</td>');
+
+  }
+
+  document.write('</tr>\n');
+
+}
+
+document.write('</table></center>');
+
+
+
+document.write('<center>Example: "& # 1 9 8 ;" is &#198;</center>');
+
+
+
+
+
+// End -->
+
+
+
+</script>	

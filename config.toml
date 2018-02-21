@@ -1,0 +1,11 @@
+baseurl = "https://auct.eu/"
+languageCode = "en-us"
+title = "AucT Blog"
+paginate = 10
+theme = "auct"
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+[Params]
+colors = ["2d89ef", "2b5797", "00a300", "99b433", "1e7145", "b91d47", "ffc40d", "e3a21a", "da532c", "9f00a7", "7e3878", "603cba", "1d1d1d","525252","ff0097","00aba9","ee1111"]
+colorsMaterial = ["f44336", "E91E63", "9C27B0", "673AB7", "3F51B5", "2196F3","03A9F4", "00BCD4", "009688", "4CAF50", "8BC34A", "CDDC39", "FFEB3B", "FFC107", "FF9800", "FF5722", "795548", "9E9E9E", "607D8B"]

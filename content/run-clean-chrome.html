@@ -1,0 +1,16 @@
++++
+date = "2016-02-23T16:06:53+03:00"
+title = "How to run clean chrome without extensions like the first time"
+tags = ["tutorials", "chrome"]
++++
+Hi, guys! If you want to test some page without tons of extension your chrome has, or if you want to check if fresh chrome is 10x faster than chrome with your extensions, bookmarks and settings..<br>
+You will need just to create shortcut of chrome and change target, by adding this 
+<pre> --user-data-dir=/dev/null</pre>
+so the target should look like
+<pre>"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --user-data-dir=/dev/null</pre>
+Here screenshot:<br>
+<img src="/img/clean_chrome.png" alt="Clean Crhome, without extensions">
+<br><br>
+It was hard to find this again, that's why I'm saving this here :)
+<br><br>
+Source: <a href="https://developer.chrome.com/devtools/docs/clean-testing-environment" target="_blank" rel="nofollow">https://developer.chrome.com/devtools/docs/clean-testing-environment</a>

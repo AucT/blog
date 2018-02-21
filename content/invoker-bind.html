@@ -1,0 +1,72 @@
++++
+date = "2010-12-14T16:06:53+03:00"
+title = "Invoker Bind"
+tags = ["projects", "autohotkey", "dota", "tools"]
++++
+
+<ul><li>Name: Invoker Hotkeys
+<li>Author: AucT
+<li>Version: 1.07.11
+<li>Description:</ul>
+
+<p>Alt+Ability hotkey will add that ability in pool. Updated 1.07.11 (sendmode input - will work on even if pc has uac)</p>
+
+<p><span class="warning">Note:</span> if it doesn't work - Run it as admin</p>
+<h3>Guide</h3>
+<ul>
+<li>Alt+Y = Cold Snap
+<li>Alt+V = Ghost Walk
+<li>Alt+X = Tornado
+<li>Alt+C = EMP
+<li>Alt+Z = Alacrity
+<li>Alt+D = Chaos Meteor
+<li>Alt+T = Sun Strike
+<li>Alt+F = Forge Spirit
+<li>Alt+G = Ice Wall
+<li>Alt+B = Deafening Blast</ul>
+<h3>Source Code</h3>
+<div class="spoiler">
+    <span class="btn btn-block" onclick="showSpoiler(this)">Show</span>
+    <div style="display:none">
+<pre>
+#SingleInstance force
+#HotkeyInterval 0
+#InstallKeybdHook
+#UseHook On
+#MaxThreads 20
+SetBatchLines, -1
+SetKeyDelay , -1, -1
+SendMode Input
+#IfWinActive Warcraft III
+!vk59::
+send {vk51}{vk51}{vk51}{vk52}
+return
+!vk47::
+send {vk51}{vk51}{vk45}{vk52}
+return
+!vk42::
+send {vk51}{vk57}{vk45}{vk52}
+return
+!vk58::
+send {vk57}{vk57}{vk51}{vk52}
+return
+!vk5A::
+send {vk57}{vk57}{vk45}{vk52}
+return
+!vk44::
+send {vk57}{vk45}{vk45}{vk52}
+return
+!vk54::
+send {vk45}{vk45}{vk45}{vk52}
+return
+!vk56::
+send {vk51}{vk51}{vk57}{vk52}
+return
+!vk46::
+send {vk51}{vk45}{vk45}{vk52}
+return
+!vk43::
+send {vk57}{vk57}{vk57}{vk52}
+return
+</pre></div></div>
+<a href="/Invoker-Hotkeys.zip" class="btn btn-block" title="download Invoker Hotkeys">Download</a>

@@ -1,0 +1,30 @@
+{{ partial "header.html" . }}
+<div class="content">
+	<section>
+		{{ $paginator := .Paginate (where .Data.Pages "Type" "page") }} {{ range .Paginator.Pages }}
+
+		<article>
+			
+			<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+			
+			<div class="postinfo">
+				<span>{{ .Date.Format "2th January 2006" }}</span>
+				<span>Tags: {{ range .Params.tags }}
+    <a href="/tags/{{ . | urlize }}/">{{ . }}</a>
+  {{ end }}</span>
+			</div>
+			{{ if .Params.img }}
+			<a class="imglink" href="{{ .Permalink }}"><img src="{{ .Params.img }}" alt="{{ .Title }}" class="img"></a>
+			{{ end }}
+
+
+		</article>
+		{{ end }} 
+		<br>
+		{{ partial "pagination.html" .Paginator }}
+	</section>
+
+	{{ partial "aside.html" . }}
+</div>
+
+{{ partial "footer.html" . }}

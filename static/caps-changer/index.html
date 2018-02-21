@@ -1,0 +1,58 @@
+<!doctype html>
+<title>Caps changer (online)</title>
+<meta name="description" content="CAPS changer - Convert capitals to lower case or change to uppercase. Service that make text from uppercase to lowercase capitalize to">
+<meta name="keywords" content="Convert capitals to lower case, change to uppercase, lower case and upper case, from uppercase to lowercase, uppercase and lowercase text, capitalize to">
+<style>
+  h4 {
+    margin: 0;
+    padding: 0
+  }
+</style>
+<h1>CAPS changer</h1>
+<h4>CAPS to small | CAPS to url | small to CAPS | text to first-letter Caps</h4>
+<p>You can change text to uppercase, convert
+  capitals to lower case, capitalize first
+  letter.
+  <br>Just input text and you'r done!</p>
+<h4>Type Here:</h5><textarea rows="5" cols="100" id="t1" onkeyup="changez()" onchange="changez()" autofocus></textarea>
+<h4>lowercase:</h5><textarea rows="5" cols="100" id="t2"></textarea>
+<h4>lowercase url:</h5><textarea rows="5" cols="100" id="t5"></textarea>
+<h4>UPPERCASE:</h5><textarea rows="5" cols="100" id="t3"></textarea>
+<h4>Smart Case:</h5><textarea rows="5" cols="100" id="t4"></textarea>
+<p><b style="color:#1c60ab">MS Word</b> Select text and hit Shift+F3 to UPPERCASE / lowercase / lowercase url / Smart Case</p>
+<p>Web Development: &copy; 2013 <a target="_blank" href="/about/">AucT</a></p>
+
+<script>
+(function() {
+	window.Textbox = {};
+
+	Textbox.t1=document.getElementById("t1");
+	Textbox.t2=document.getElementById("t2");
+	Textbox.t3=document.getElementById("t3");
+	Textbox.t4=document.getElementById("t4");
+	Textbox.t5=document.getElementById("t5");
+	
+	window.changez = function() {
+		Textbox.t2.value=Textbox.t5.value=Textbox.t1.value.toLowerCase();
+		Textbox.t5.value=Textbox.t5.value.replace(/\s/gi, "-");
+		Textbox.t3.value=Textbox.t1.value.toUpperCase();
+		var smart="";
+		var n=Textbox.t1.value.split(" ");
+		for (var i=0;i<n.length;i++)
+		{ 
+		smart = smart + n[i].substring(0,1).toUpperCase() + n[i].substring(1).toLowerCase() + " ";
+		}
+		Textbox.t4.value=smart;
+		}
+})();
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41398442-1', 'auct.eu');
+  ga('send', 'pageview');
+
+</script>

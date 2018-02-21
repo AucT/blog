@@ -1,0 +1,81 @@
+<aside>
+  <div>
+    <div class="h2"><a href="#">Change Color:</a></div>
+ 
+{{ range .Site.Params.colors }}<input type="submit" onclick="changeColor('#{{ . }}')" class="c-b" style="background: #{{ . }}; color: #{{ . }}" value="a">{{ end }}{{ range .Site.Params.colorsMaterial }}<input type="submit" onclick="changeColor('#{{ . }}')" class="c-b" style="background: #{{ . }}; color: #{{ . }}" value="a">{{ end }}
+
+
+  </div>
+  <br>
+  <form action="https://www.google.com" id="cse-search-box">
+    <div>
+      <input type="hidden" name="cx" value="partner-pub-9429654016721011:6491905143" />
+      <input type="hidden" name="ie" value="UTF-8" />
+      <input type="text" name="q" size="55" />
+      <input type="submit" class="sa" name="sa" value="Search" />
+    </div>
+  </form>
+
+  <script type="text/javascript" src="https://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+
+  <div>
+    <div class="h2"><a href="#">Projects</a></div>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="GG4LE9DG5ZJTJ">
+      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+    <ul class="unstyled">
+      <li><a href="https://aht.auct.eu/" class="info" title="AucT Hotkeys Tool"><b class="prj prj1"></b> AucT Hotkeys Tool</a>
+        <li><a href="http://dotacustomkeys.appspot.com/" title="AucT DOTA CustomKeys Generator"><b class="prj prj2"></b> AucT CustomKeys Generator</a>
+          <li><a href="https://sih.auct.eu/" title="Simple Inventory Hotkeys"><b class="prj prj3"></b> Simple Inventory Hotkeys</a>
+            <li><a href="https://auct.eu/invoker-bind/" title="Invoker Bind"><b class="prj prj4"></b> Invoker Bind</a>
+              <li><a href="https://auct.eu/warcraft3-folder/" title="WarCraft 3 Folder"><b class="prj prj5"></b> WarCraft 3 Folder</a>
+                <li><a href="https://auct.eu/d2u/" title="Dota 2 Utilities (Accepter)"><b class="prj prj6"></b> Dota2 Utilities</a>
+                  <li><a href="https://steamid.xyz/" target="_blank" title="Steam ID Finder"><b class="prj prj7"></b> Steam ID Finder</a>
+                    <li><a href="http://dota.zz.mu/" target="_blank" title="Dota Archive"><b class="prj prj8"></b> Dota Archive</a>
+                      <li><a href="http://rosh.likesyou.org/" target="_blank" title="Rosh Timer"><b class="prj prj9"></b> Rosh Timer</a>
+                        <li><a href="https://auct.eu/dehpc/" title="Dota EHP Calculator"><b class="prj prj10"></b> Dota EHP Calculator</a>
+                          <li><a href="https://auct.eu/dahs/" title="Dota Advanced Hero Statistics"><b class="prj prj11"></b> Dota Advanced Hero Statistics</a>
+                            <li><a href="https://auct.eu/wc3rf/" title="WarCraft3 Registry Fixer">WarCraft3 Registry Fixer (online)</a>
+                              <li><a href="https://capsconverter.appspot.com/" title="CAPS changer">CAPS changer (online)</a>
+                                <li><a href="https://auct.eu/golden-grid-calculator/" title="Golden Grid Calculator">Golden Grid Calculator (online)</a>
+                                <li><a href="https://kinobaza.com.ua/" target="_blank">КіноБаза (ukrainian imdb)</a></li>
+    </ul>
+  </div>
+
+  <div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- 300x250 standart -->
+    <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-7152219959074781" data-ad-slot="5973541951"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+
+    </script>
+  </div>
+  <br>
+  <div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- 300x250 standart -->
+    <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-7152219959074781" data-ad-slot="5973541951"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+
+    </script>
+  </div>
+
+
+  <div>
+    <div class="h2"><a href="#">Tags</a></div>
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+    <a class="reverse" href="/tags/{{ $name | urlize }}/">{{ $name }}</a> {{ end }}
+  </div>
+
+  <div>
+    <a class="twitter-timeline" href="https://twitter.com/AucT" data-widget-id="315870960567853057">Твіти @AucT</a>
+    <script>
+      !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");
+    </script>
+  </div>
+</aside>

@@ -1,0 +1,67 @@
++++
+date = "2013-08-16T16:06:53+03:00"
+img = "/img/youtube.jpg"
+title = "How to retreive YouTube video information using YouTube API in PHP"
+tags = ["php", "tutorials", "coding"]
++++
+<h3>Parse single video</h3>
+<pre>
+&lt;?php
+$json = file_get_contents('http://gdata.youtube.com/feeds/api/videos/eQWG8BVeryU?v=2&amp;alt=json');
+$obj = json_decode($json);
+$item['title']=$obj-&gt;entry-&gt;title-&gt;{'$t'};
+$item['author']=$obj-&gt;entry-&gt;author[0]-&gt;name-&gt;{'$t'};
+$item['description']=$obj-&gt;entry-&gt;content-&gt;{'$t'};
+$item['id']=substr($obj-&gt;entry-&gt;id-&gt;{'$t'},strpos($obj-&gt;entry-&gt;id-&gt;{'$t'},'video:')+6);
+$item['url']=$obj-&gt;entry-&gt;link[0]-&gt;href;
+$item['published']=$obj-&gt;entry-&gt;published-&gt;{'$t'};
+$item['duration']=$obj-&gt;entry-&gt;{'media$group'}-&gt;{'yt$duration'}-&gt;seconds;
+$item['img']=$obj-&gt;entry-&gt;{'media$group'}-&gt;{'media$thumbnail'}[2]-&gt;url;
+echo '&lt;b&gt;Title:&lt;/b&gt; '.$item['title'];
+echo '&lt;br&gt;&lt;b&gt;Author:&lt;/b&gt; '.$item['author'];
+echo '&lt;br&gt;&lt;b&gt;Pusblished:&lt;/b&gt; '.$item['published'];
+echo '&lt;br&gt;&lt;b&gt;Duration:&lt;/b&gt; '.$item['duration'].' seconds&lt;br&gt;';
+echo $item['description'];
+echo '&lt;br&gt;&lt;a href=&quot;'.$item['url'].'&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;'.$item['img'].'&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;';
+//Display the video
+echo '&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/'.$item['id'].'&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;br&gt;';
+echo '&lt;br&gt;&lt;br&gt;';
+?&gt;
+</pre>
+<h3>Parse channel</h3>
+<pre>
+&lt;?php
+$channels = array('ChrisBrownVEVO', 'BritneySpearsVEVO');
+foreach ($channels as $channel) {
+$json = getSslPage('https://gdata.youtube.com/feeds/api/users/'.$channel.'/uploads?alt=json');
+$obj = json_decode($json);
+for ($i=0; $i&lt;25; $i++) {
+$item['title']=$obj-&gt;feed-&gt;entry[$i]-&gt;title-&gt;{'$t'};
+$item['author']=$obj-&gt;feed-&gt;entry[$i]-&gt;author[0]-&gt;name-&gt;{'$t'};
+$item['description']=$obj-&gt;feed-&gt;entry[$i]-&gt;content-&gt;{'$t'};
+$item['url']='http://www.youtube.com/watch?v='.substr($obj-&gt;feed-&gt;entry[$i]-&gt;id-&gt;{'$t'},42);
+$item['published']=$obj-&gt;feed-&gt;entry[$i]-&gt;published-&gt;{'$t'};
+$item['duration']=$obj-&gt;feed-&gt;entry[$i]-&gt;{'media$group'}-&gt;{'yt$duration'}-&gt;seconds;
+$item['img']=$obj-&gt;feed-&gt;entry[$i]-&gt;{'media$group'}-&gt;{'media$thumbnail'}[0]-&gt;url;
+echo '&lt;b&gt;Title:&lt;/b&gt; '.$item['title'];
+echo '&lt;br&gt;&lt;b&gt;Author:&lt;/b&gt; '.$item['author'];
+echo '&lt;br&gt;&lt;b&gt;Pusblished:&lt;/b&gt; '.$item['published'];
+echo '&lt;br&gt;&lt;b&gt;Duration:&lt;/b&gt; '.$item['duration'].' seconds&lt;br&gt;';
+echo $item['description'];
+echo '&lt;br&gt;&lt;a href=&quot;'.$item['url'].'&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;'.$item['img'].'&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;';
+}
+}
+function getSslPage($url) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_REFERER, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
+}
+?&gt;
+</pre>

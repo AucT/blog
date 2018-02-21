@@ -1,0 +1,18 @@
++++
+date = "2014-08-03T16:06:53+03:00"
+title = "How to Remove Directory with Reserved Names Windows"
+tags = ["articles", "windows"]
++++
+How to delete folders with reserved names like CON, PRN, AUX, NUL, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, and LPT9 in windows??<br><br>
+
+Here what you need:<br>
+
+1) use cmd (Win+R type cmd and enter)<br>
+
+2) if you have folder:
+
+<pre><b>RD /s \\.\c:\somedir\com1</b></pre>
+
+if you have file:
+
+<pre><b>DEL /F \\.\c:\somedir\aux</b></pre>

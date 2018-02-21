@@ -1,0 +1,10 @@
+hugo server --theme=h5bp --buildDrafts
+hugo server --theme=auct --buildDrafts --watch
+
+hugo --theme=auct --buildDrafts
+hugo --buildDrafts
+
+hugo --theme=auct --buildDrafts
+http://auct.eu/associate-warcraft-replay-w3g-with-replay/ => redirect na wc3registry fixer
+http://auct.eu/sugarsync-warcraft-folder/ => na warcraft-folder/
+http://auct.eu/dota-archive/  => na warcraft-folder/

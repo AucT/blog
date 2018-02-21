@@ -1,0 +1,77 @@
+{{ partial "header.html" . }}
+<div class="content">
+<section>
+		<article>
+			<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            <div class="postinfo">
+				<span>{{ .Date.Format "2th January 2006" }}</span>
+				<span>Tags: {{ range .Params.tags }}
+    <a href="/tags/{{ . | urlize }}/">{{ . }}</a>
+  {{ end }} </span>
+			</div>
+
+			{{ if .Params.img }}
+			<a class="imglink" href="{{ .Permalink }}"><img src="{{ .Params.img }}" alt="{{ .Title }}" class="img"></a>
+			{{ end }}
+            
+
+            {{ .Content }}
+
+
+            {{ if .Params.link_title1 }}
+                <a target="_blank" class="btn btn-block" href="{{ .Params.link_url1 }}">{{ .Params.link_title1 }}</a>
+            {{ end }}
+
+            {{ if .Params.link_title2 }}
+                <a target="_blank" class="btn btn-block" href="{{ .Params.link_url2 }}">{{ .Params.link_title2 }}</a>
+            {{ end }}
+
+            {{ if .Params.link_title3 }}
+                <a target="_blank" class="btn btn-block" href="{{ .Params.link_url3 }}">{{ .Params.link_title3 }}</a>
+            {{ end }}
+             
+
+			
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Case Converter Top -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7152219959074781"
+     data-ad-slot="6598980758"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+			<h3>Share on Social Networks:</h3>
+			<a href="https://twitter.com/intent/tweet?text={{ .Title }}&amp;via=auct&amp;url={{ .Permalink }}" title="Share on Twitter!" target="_blank" class="btn tw">Twitter</a>
+			<a href="https://www.facebook.com/sharer/sharer.php?s=100&p[title]={{ .Title }}&p[url]={{ .Permalink }}&p[summary]={{ .Title }}&p[images][0]={{ .Params.img }}" title="Share on Facebook!" target="_blank" class="btn fb">Facebook</a>
+			<a href="https://vk.com/share.php?url={{ .Permalink }}&title={{ .Title }}&description={{ .Title }}" title="Share on Vkontakte!" target="_blank" class="btn vk">VK</a>
+			<a href="https://plus.google.com/share?url={{ .Permalink }}" title="Share on Google+!" target="_blank" class="btn gp">GooGle+</a>
+			
+
+			
+
+        </article>
+
+		<article>
+	<div id="disqus_thread"></div> 
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'auctblog'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </article>
+
+		</section>
+    {{ partial "aside.html" . }}
+	</div>
+{{ partial "footer.html" . }}

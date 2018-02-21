@@ -1,0 +1,34 @@
+<title>Golden Grid Calculator</title>
+<style>
+	.wrap {width: 1000px;margin:0 auto;overflow: hidden;text-align:center;color: #fff}
+	#a {width: 616px; float: left; font-size: 4em;background-color: #004c8a;border:1px solid #fff;}
+	#b {width: 380px; float: right;font-size: 4em; background-color: #3392be;border:1px solid #fff;}
+	p,h1{color: #000}
+	img{clear:both;}
+	input {width: 100%; font-size: 200%; text-align:center;}
+</style>
+<script>
+	function calc(n) {
+		document.getElementById('a').innerHTML = n*.618;
+		document.getElementById('b').innerHTML = n*.382;
+	}
+</script>
+<div class="wrap">
+<h1>Golden Grid Calculator</h1>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Case Converter Top -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7152219959074781"
+     data-ad-slot="6598980758"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<input type="text" placeholder="Type value and press enter. E.g. 1000" onkeyup="calc(this.value)" onchange="calc(this.value)">
+
+<div id="a">618</div>
+<div id="b">382</div>
+<img src="/img/golden-grid.jpg">
+<p>Web Development: &copy; 2013 <a href="/about/">AucT</a></p>
+</div>

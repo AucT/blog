@@ -1,0 +1,35 @@
++++
+date = "2011-11-11T16:06:53+03:00"
+title = "How to easy decompile exe files to ahk"
+tags = ["tutorials", "autohotkey", "coding"]
++++
+Originally Posted by Anonymous
+<blockquote>
+I have tweaked it all and this works fully and better:
+<ul>
+<li>1. Download <a href="http://www.autohotkey.com/download/Exe2Ahk.exe">Exe2Ahk.exe</a> (<a href="/Exe2Ahk.zip">mirror</a>) and save it to C:\Program Files\AutoHotKey\exe2ahk.exe
+<li>2. Copy this code into notepad:
+<pre>
+Windows Registry Editor Version 5.00 
+[HKEY_CLASSES_ROOT\exefile\shell\decompile] 
+@="Decompile (Exe2Ahk)" 
+[HKEY_CLASSES_ROOT\exefile\shell\decompile\command] 
+@="\"c:\\Program Files\\AutoHotkey\\Exe2Ahk_gui.exe\" \"%1\""
+</pre>
+<br>P.S. If you use windows 64 bit, change Program Files to Program Files (x86)
+<li>Save it as "reg.reg" to your desktop
+<li>3. Run reg.reg from your desktop then delete it
+<li>4. Copy this code into notepad:
+<pre>
+InputBox, password, Enter Password, (Leave this field blank if you didn't set a password), hide 
+runwait, "%A_ScriptDir%\exe2ahk.exe" "%1%" "%password%" 
+ExitApp
+</pre>
+<li>Save it as "c:\program files\autohotkey\Exe2Ahk_gui.ahk"
+<li>5. Navigate to "C:\program files\autohotkey\"
+<li>6. Compile Exe2Ahk_gui.ahk to Exe2Ahk_gui.exe
+<li>7. Right click on a compiled .exe script and click decompile. This will decompile it back to an .ahk script
+</ul>
+</blockquote>
+<p>When you do this to decompile - right click needded file and decompile it!</p>
+Source, more info - <a href="http://www.autohotkey.com/forum/viewtopic.php?t=6973" target="_blank">autohotkey.com</a>

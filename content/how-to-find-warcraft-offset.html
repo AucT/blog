@@ -1,0 +1,32 @@
++++
+date = "2016-12-19T16:06:53+03:00"
+title = "How to find WarCraft 3 Offset"
+tags = ["tutorials", "warcraft"]
++++
+<p>For developers: If you want it asap you can do it yourself. You will need to edit .ahk file in the end there is something like
+<pre>
+FileGetVersion,version,%szExePath%
+if (InStr(version, "1.24."))
+	offset := 0xAE8450
+else if (version = "1.26.0.6401")
+	offset := 0xAD15F0
+else if (InStr(version, "1.27.1"))
+	offset := 0xD3D3EC
+;else if (version = "1.27.0.52240")// dont wanna do exac match if new patch will be and offset will be the same
+else if (InStr(version, "1.27."))
+	offset := 0xBDAA14
+else
+{
+	Log("Warcraft III version: " . version . " is not supported")
+	Return -2
+}
+</pre>
+<p>Add another if statement and offset. To find the offset of chat you will need to install CheatEngine.
+<br>Next open start game in any map in warcraft 3.
+<br>Then start cheatengine, select war3.exe process.
+<br>Scan for 0 when chatbox is closed.
+<br>Scan for 1 when chatbox is opened (press enter in warcraft)
+<br>After several times of scanning you'll get 5 offsets and 1 of them will be green. Add it and rightclick copy. Paste it and copy only offset. Add 0x before that string and it will be the offset needed</p>
+<br>Here image guide
+<br>
+<img src="/img/how-to-find-warcraft-offset.png" alt="How to find Warcraft 3 Offset">

@@ -1,0 +1,128 @@
+<title>WarCraft III Registry Fixer</title>
+<style>body{background:#555}#wrap{padding: 30px; width:600px; margin: 50px auto;text-align:center; background:rgba(255,255,255,.8)}input{width:100%; display:block;font-size:1.6em}#submit{cursor:pointer}ol{text-align:left}textarea{width:100%}</style>
+<div id="wrap">
+<h1>WarCraft III Registry Fixer</h1>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Case Converter Top -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7152219959074781"
+     data-ad-slot="6598980758"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+Put your path and click generate
+
+<input id="directory" type="text" name="directory" value="C:\Program Files\Warcraft III" onkeyup="change(this.value)" onchange="change(this.value)" autofocus>
+<input id="submit" type="submit" name="submit" value="Select" onclick="textInput.select();">
+
+<ol>
+<li>Input your warcraft folder path
+<li>Click Select and copy (ctr+c)
+<li>Create new text file
+<li>Paste selected text (ctr + v)
+<li>Save as reg.reg
+<li>Run the file (accept prompts)
+</ol>
+<textarea rows="20" id="text">
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Blizzard Entertainment\Warcraft III]
+"InstallPath"="C:\\Program Files\\Warcraft III"
+"Program"="C:\\Program Files\\Warcraft III\\Warcraft III.exe"
+"InstallPathX"="C:\Program Files\\Warcraft III"
+"ProgramX"="C:\\Program Files\\Warcraft III\\Frozen Throne.exe"
+
+[HKEY_CLASSES_ROOT\.w3g]
+@="Warcraft3.Replay"
+
+[HKEY_CLASSES_ROOT\Warcraft3.Replay]
+@="Warcraft III Replay File"
+
+[HKEY_CLASSES_ROOT\Warcraft3.Replay\DefaultIcon]
+@="C:\\Program Files\\Warcraft III\\Replays.ico"
+
+[HKEY_CLASSES_ROOT\Warcraft3.Replay\shell]
+
+[HKEY_CLASSES_ROOT\Warcraft3.Replay\shell\open]
+
+[HKEY_CLASSES_ROOT\Warcraft3.Replay\shell\open\command]
+@="\"C:\\Program Files\\Warcraft III\\War3.exe\" -loadfile \"%1\""
+
+[HKEY_CLASSES_ROOT\.w3m]
+@="WorldEdit.Scenario"
+
+[HKEY_CLASSES_ROOT\WorldEdit.Scenario]
+@="Warcraft III Scenario File"
+
+[HKEY_CLASSES_ROOT\WorldEdit.Scenario\DefaultIcon]
+@="C:\\Program Files\\Warcraft III\\WorldEdit.exe,2"
+
+[HKEY_CLASSES_ROOT\WorldEdit.Scenario\shell]
+
+[HKEY_CLASSES_ROOT\WorldEdit.Scenario\shell\open]
+
+[HKEY_CLASSES_ROOT\WorldEdit.Scenario\shell\open\command]
+@="C:\\Program Files\\Warcraft III\\World Editor.exe -loadfile \"%1\""
+
+[HKEY_CLASSES_ROOT\.w3n]
+@="WorldEdit.Campaign"
+
+[HKEY_CLASSES_ROOT\WorldEdit.Campaign]
+@="Warcraft III Campaign File"
+
+[HKEY_CLASSES_ROOT\WorldEdit.Campaign\DefaultIcon]
+@="C:\\Program Files\\Warcraft III\\WorldEdit.exe,4"
+
+[HKEY_CLASSES_ROOT\WorldEdit.Campaign\shell]
+
+[HKEY_CLASSES_ROOT\WorldEdit.Campaign\shell\open]
+
+[HKEY_CLASSES_ROOT\WorldEdit.Campaign\shell\open\command]
+@="C:\\Program Files\\Warcraft III\\World Editor.exe -loadfile \"%1\""
+
+[HKEY_CLASSES_ROOT\.w3x]
+@="WorldEdit.ScenarioEx"
+
+[HKEY_CLASSES_ROOT\WorldEdit.ScenarioEx]
+@="Warcraft III Expansion Scenario File"
+
+[HKEY_CLASSES_ROOT\WorldEdit.ScenarioEx\DefaultIcon]
+@="C:\\Program Files\\Warcraft III\\WorldEdit.exe,3"
+
+[HKEY_CLASSES_ROOT\WorldEdit.ScenarioEx\shell]
+
+[HKEY_CLASSES_ROOT\WorldEdit.ScenarioEx\shell\open]
+
+[HKEY_CLASSES_ROOT\WorldEdit.ScenarioEx\shell\open\command]
+@="C:\\Program Files\\Warcraft III\\World Editor.exe -loadfile \"%1\""
+
+[HKEY_CLASSES_ROOT\.wai]
+@="WorldEdit.AIData"
+
+[HKEY_CLASSES_ROOT\WorldEdit.AIData]
+@="Warcraft III AI Data File"
+
+[HKEY_CLASSES_ROOT\WorldEdit.AIData\DefaultIcon]
+@="C:\\Program Files\\Warcraft III\\WorldEdit.exe,5"
+
+[HKEY_CLASSES_ROOT\WorldEdit.AIData\shell]
+
+[HKEY_CLASSES_ROOT\WorldEdit.AIData\shell\open]
+
+[HKEY_CLASSES_ROOT\WorldEdit.AIData\shell\open\command]
+@="C:\\Program Files\\Warcraft III\\World Editor.exe -loadfile \"%1\""
+</textarea>
+<br><br>
+Web Development: &copy; 2013 <a href="/about/">AucT</a></div>
+
+<script>
+var directory = document.getElementById("directory");
+var textInput = document.getElementById("text");
+var textValue = textInput.value;
+function change(newText){
+	newText = newText.replace(/\\/g, "\\\\");
+	textInput.value = textValue.replace(/C:\\\\Program Files\\\\Warcraft III/g, newText);
+}
+</script>

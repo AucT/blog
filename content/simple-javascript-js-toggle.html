@@ -1,0 +1,85 @@
++++
+date = "2013-09-11T16:06:53+03:00"
+title = "Simple Javascript (JS) Toggle"
+tags = ["javascript", "tutorials", "coding"]
++++
+<h3> Method #1</h3>
+<p>This method is good for small projects where you just need to fast toggle some block.<br>If your element has something in display you should use method #2</p>
+<h4>Code:</h4>
+<pre>
+&lt;script&gt;function toggle(el) {
+  el.style.display = (el.style.display == '') ? 'none' : ''&lt;/script&gt;
+}
+</pre>
+<h4>Usage:</h4>
+<pre>
+&lt;div id=&quot;block&quot; style=&quot;display:none;&quot;&gt;Random toggle text&lt;/div&gt;
+&lt;span onclick=&quot;toggle(document.getElementById('block'))&quot;&gt;Click Me!&lt;/span&gt;
+</pre>
+<h4>Example:</h4>
+<script>
+function toggle1(el) {
+  el.style.display = (el.style.display == '') ? 'none' : ''
+}
+</script>
+<div id="block1" style="display:none;">Random toggle text</div>
+<span onclick="toggle1(document.getElementById('block1'))">Click Me!</span>
+<h3> Method #2</h3>
+<p>This method adds/removes class from element, so if you have something in display attribute everything will be fine</p>
+<h4>Code:</h4>
+<pre>
+&lt;style&gt;
+.none{display:none;}
+&lt;/style&gt;
+&lt;script&gt;
+function toggle(el) {
+  if (hasClass(el,'none'))
+	removeClass(el,'none');
+  else
+	addClass(el,'none');
+}
+function hasClass(ele,cls) {
+    return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+}
+function addClass(ele,cls) {
+    if (!this.hasClass(ele,cls)) ele.className += &quot; &quot;+cls;
+}
+function removeClass(ele,cls) {
+    if (hasClass(ele,cls)) {
+        var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
+        ele.className=ele.className.replace(reg,' ');
+    }
+}
+&lt;/script&gt;
+</pre>
+<h4>Usage:</h4>
+<pre>
+&lt;div id=&quot;block&quot; class=&quot;none&quot;&gt;Random toggle text&lt;/div&gt;
+&lt;span onclick=&quot;toggle(document.getElementById('block'))&quot;&gt;Click Me!&lt;/span&gt;
+</pre>
+<h4>Example:</h4>
+<style>
+.none{display:none;}
+</style>
+<script>
+function toggle2(el) {
+  if (hasClass(el,'none'))
+	removeClass(el,'none');
+  else
+	addClass(el,'none');
+}
+function hasClass(ele,cls) {
+    return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+}
+function addClass(ele,cls) {
+    if (!this.hasClass(ele,cls)) ele.className += " "+cls;
+}
+function removeClass(ele,cls) {
+    if (hasClass(ele,cls)) {
+        var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
+        ele.className=ele.className.replace(reg,' ');
+    }
+}
+</script>
+<div id="block2" class="none">Random toggle text</div>
+<span onclick="toggle2(document.getElementById('block2'))">Click Me!</span>

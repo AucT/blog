@@ -1,0 +1,89 @@
++++
+date = "2013-08-15T16:06:53+03:00"
+img = "https://dummyimage.com/775x100/777/fff.gif&text=SteamID32=%3ESteamID64"
+title = "Convert SteamID32, ID, Steam Name to Steam64"
+tags = ["php", "tutorials", "steam"]
++++
+<div class="links"><h3>STEAMID API</h3>
+
+
+
+<p>The Dota2 API generally gives you people's SteamIDs as 32-bit numbers aka accountid.</p>
+
+
+
+<p>In order to convert from these 32-bit numbers to Steam Names, you must first convert between the 32-bit ID and 64-bit ID:
+
+On a system that supports up to 64-bit numbers you can do the following:</p>
+
+<ul>
+
+<li>STEAMID64 - 76561197960265728 = STEAMID32
+
+<li>STEAMID32 + 76561197960265728 = STEAMID64
+
+<li>OR
+
+<li>STEAMID32 = The right-most 32-bits of STEAMID64
+
+<li>STEAMID64 = concatenate("00000001000100000000000000000001", STEAMID32);
+
+</ul>On a system that only supports up to 32-bit numbers - it's trickier. You have to rely on the language's built-in "big number" functions (i.e. PHP's gmp extension: see below)
+
+Once you have the 64-bit ID, then you can use the GetPlayerSummaries call to get their detail!
+
+<h3>Convert AccountID to SteamID64 in PHP</h3>
+
+<pre>
+
+function A2S($id32) {
+
+return bcadd($id32,'76561197960265728');
+
+}
+
+function S2A($id64) {
+
+return bcsub($id64,'76561197960265728');
+
+}
+
+</pre>
+
+
+
+
+
+<h3>How to get someone's 64-bit ID to search with:</h3>
+
+
+
+<h5>If you have their vanity URL, it should look like this:</h5>
+
+http://steamcommunity.com/id/<vanity_name>/
+
+Using ResolveVanityURL (see <a href="http://wiki.teamfortress.com/wiki/WebAPI/ResolveVanityURL" target="_blank">http://wiki.teamfortress.com/wiki/WebAPI/ResolveVanityURL</a> for more info), you can get the 64-bit ID as follows:
+
+<pre>http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=<key>&vanityurl=<vanity_name></pre>
+
+
+
+<h5>If you have an ID url:</h5>
+
+http://steamcommunity.com/profiles/<id>/<br>
+
+Then the <id> is their 64-bit ID and you're done!<br><br>
+
+
+
+<h5>If you have just a Steam-Name:</h5>
+
+You can use this to search the Dota2 API directly using the player_name option of GetMatchHistory<br>
+
+You can then find their 32-bit ID in the list and then convert it to a 64-bit ID as above.<br><br>
+
+
+
+I just added convert function<br>
+
+Source: <a href="http://dev.dota2.com/showthread.php?t=58317" target="_blank">http://dev.dota2.com/showthread.php?t=58317</a></div>

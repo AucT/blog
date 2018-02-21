@@ -1,0 +1,12 @@
++++
+date = "2015-08-11T16:06:53+03:00"
+title = "Select Max Id using php + mysql!"
+tags = ["articles", "tutorials", "php", "mysql"]
++++
+<p>
+Simple and elegant solution to select max id of the table. Plain php + mysql.<br>
+In case I forgot I'll post it here ;P
+<pre>
+$maxid = $this->db->query('SELECT MAX(id) FROM `movies`')->fetchColumn();
+</pre>
+</p>

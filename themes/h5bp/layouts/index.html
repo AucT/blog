@@ -1,0 +1,23 @@
+{{ partial "header.html" . }}
+     
+    <section>
+	{{ range first 10 .Data.Pages }}
+	
+	<article>
+			<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+			<a href="{{ .Permalink }}"><img src="{{ .Params.img }}" alt="{{ .Title }}" class="img"></a>
+						
+			<ul class="postinfo">
+				<li>{{ .Date.Format "2th January 2006" }}</li>
+				<li>Tags: {{ range .Params.tags }}
+    <a href="/tags/{{ . | urlize }}">{{ . }}</a>
+  {{ end }}</li>
+			</ul>
+		</article>
+   {{ end }}
+   </section>
+   
+   {{ partial "aside.html" . }}  
+
+    {{ partial "pagination.html" .Paginator }}         
+{{ partial "footer.html" . }}

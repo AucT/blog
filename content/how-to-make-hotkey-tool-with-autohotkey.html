@@ -1,0 +1,156 @@
++++
+date = "2011-10-15T16:06:53+03:00"
+img = "/img/how-to-make-hotkey-tool-with-autohotkey.jpg"
+title = "How to make hotkey tool with AutoHotkey"
+tags = ["tutorials", "autohotkey", "coding", "dota"]
++++
+<p>Hello guys! Im going to tell u how to create simple autohotkey script. It will be some advanced version of EasyPack. It will include 3 steps.</p>
+<ul><li>1. Creating Basic Tool
+<li>2. Adding interface
+<li>3. Adding special functions</ul>
+
+<p><span class="warning">NOTE:</span> Autohotkey script will work only in windows.</p>
+
+You will need:
+<ul><li>1) Autohotkey
+<li>2) some text editor</ul>
+
+<h3>Step 1 : Creating Basic Tool</h3>
+To create autohotkey script simply rightlick mouse - create autohotkey script or save text file in .ahk extension.
+
+<h3>Header</h3>
+First of all we need make some changes in the options of the script so in the header we will put this preferences:
+<pre>
+#SingleInstance force
+#HotkeyInterval 0
+#InstallKeybdHook
+#UseHook On
+#MaxThreads 25
+SetBatchLines, -1
+SetKeyDelay , -1, -1
+SetDefaultMouseSpeed, 0
+SetMouseDelay, -1
+Process, priority, , High
+SetWorkingDir %A_ScriptDir%
+#NoEnv
+#ifWinActive, ahk_class Warcraft III
+</pre>
+<h3>Setting Keys</h3>
+Now we will read the .ini file. If it doesnt exist we will get default hotkeys (alt+q; alt+w, alt+a, alt+s, alt+z, alt+x).
+I used variables h1-h7 for future purposes (detecting same variable).
+I would like all hotkeys iniread and hotkey via loop, but for better understanding I will make loop only for item hotkeys and for pause script I will do it manually. To do that we will read our ini file, and if key not a blank - we will create hotkey
+
+This is how to do in the loop. Mb it is a bit advanced for you now.
+
+<pre>
+  loop {
+  IniRead, h%A_Index%, %A_WorkingDir%\EasyPack2.ini, Inventory, item%A_Index%, %A_Space%
+  if % h%A_Index%
+  Hotkey, % h%A_Index%, a%A_Index%
+  if A_Index=6
+	break
+  }
+</pre>
+Here how to simply make hotkey
+<pre>
+IniRead, h7, %A_WorkingDir%\EasyPack2.ini, Other, Pause, Home
+  if h7
+  Hotkey, %h7%, a7
+</pre>
+Basic labels
+Here our labels. I used names a - action so in next steps we can easily put it all to the loop
+
+<pre>
+a1:
+send {vk67}
+return
+
+a2:
+send {vk68}
+return
+
+a3:
+send {vk64}
+return
+
+a4:
+send {vk65}
+return
+
+a5:
+send {vk61}
+return
+
+a6:
+send {vk62}
+return
+
+a7:
+suspend
+return
+</pre>
+
+<h3>Full Code:</h3>
+<div class="spoiler">
+    <span class="btn btn-block" onclick="showSpoiler(this)">Show</span>
+    <div style="display:none">
+<pre>
+#SingleInstance force
+#HotkeyInterval 0
+#InstallKeybdHook
+#UseHook On
+#MaxThreads 25
+SetBatchLines, -1
+SetKeyDelay , -1, -1
+SetDefaultMouseSpeed, 0
+SetMouseDelay, -1
+Process, priority, , High
+SetWorkingDir %A_ScriptDir%
+#NoEnv
+#ifWinActive, ahk_class Warcraft III
+
+  loop {
+  IniRead, h%A_Index%, %A_WorkingDir%\EasyPack2.ini, Inventory, item%A_Index%, %A_Space%
+  if % h%A_Index%
+  Hotkey, % h%A_Index%, a%A_Index%
+  if A_Index=6
+	break
+  }
+  
+  IniRead, h7, %A_WorkingDir%\EasyPack2.ini, Other, Toggle, Home
+  if h7
+  Hotkey, %h7%, a7
+return
+  
+a1:
+send {vk67}
+return
+
+a2:
+send {vk68}
+return
+
+a3:
+send {vk64}
+return
+
+a4:
+send {vk65}
+return
+
+a5:
+send {vk61}
+return
+
+a6:
+send {vk62}
+return
+
+a7:
+suspend
+return
+</pre>
+    </div>
+</div>
+
+<a href="/How-To-Create-Hotkey--Step 1-EasyPack2.zip" class="btn btn-block" title="download step1 EasyPack2">Download</a>
