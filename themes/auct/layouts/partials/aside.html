@@ -4,13 +4,10 @@
       <a href="#">Change Color:</a>
     </div>
 
-    {{ range .Site.Params.colors }}
-    <input type="submit" onclick="changeColor('#{{ . }}')" class="c-b" style="background: #{{ . }}; color: #{{ . }}"
-      value="a">{{ end }}{{ range .Site.Params.colorsMaterial }}
-    <input type="submit" onclick="changeColor('#{{ . }}')" class="c-b" style="background: #{{ . }}; color: #{{ . }}"
+    {{ range .Site.Params.colors }}<input type="submit" onclick="changeColor('#{{ . }}')" class="c-b" style="background: #{{ . }}; color: #{{ . }}"
+      value="a">{{ end }}{{ range .Site.Params.colorsMaterial }}<input type="submit" onclick="changeColor('#{{ . }}')" class="c-b" style="background: #{{ . }}; color: #{{ . }}"
       value="a">{{ end }}
-
-
+      
   </div>
   <br>
   <form action="https://www.google.com" id="cse-search-box">
