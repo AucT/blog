@@ -1,5 +1,5 @@
 +++
-date = "2018-04-12T16:06:53+03:00"
+date = "2018-04-15T16:06:53+03:00"
 img = "/img/auct-hotkeys-tool.jpg"
 title = "AucT Hotkeys Tool v2.9.5 for WarCraft III 1.29"
 tags = ["news", "projects"]
