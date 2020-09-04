@@ -31,7 +31,7 @@ blockquote{border-left:3px solid #ccc;padding-left:15px;margin:10px 0}
 .btn{color:#FFF;cursor:pointer;display:inline-block;font-weight:700;text-align:center;text-decoration:none;width:48%;margin:0 0 1em;padding:10px}
 .reverse{color:#FFF;display:inline-block;font-weight:700;margin:0 0 5px}
 .btn-block{width:100%}
-.fb,.vk,.gp,.tw{width:24%}
+.fb,.vk,.gp,.tw{width:48%}
 .vk:hover{background:#365271!important}
 .gp:hover{background:#b13c2e!important}
 .tw:hover{background:#2488b5!important}
