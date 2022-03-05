@@ -8,6 +8,7 @@
 <link rel="canonical" href="{{ .Permalink }}" />
 
 <style id="style">
+body {margin: 0; padding: 0}
 a {color:#b91d47;}
 section a:hover, aside a:hover{color:#fff; background:#b91d47;}
 input[name=sa] {background:#b91d47;}
@@ -16,6 +17,7 @@ nav a {background:#b91d47;}
 input[type=text]{border:1px solid #b91d47;}
 .btn, .reverse {background: #b91d47;}
 .reverse:hover {color: #b91d47; background:#fff}
+#war_in_ukraine {font-size: xx-large; text-shadow: 0 0 5px #000000; text-align: center;color: #fff;font-weight: bold;text-decoration: none;display: block;    background-image: linear-gradient(180deg, #005BBB 0, #005BBB 50%, #FFD500 50%, #FFD500 100%);}
 </style>
 <script>
 var style = document.getElementById("style");
@@ -26,9 +28,10 @@ if (current_color) {
 
 function changeColor(color) {
     style.innerHTML = "a {color:"+color+";} section a:hover, aside a:hover{color:#fff; background:"+color+";} input[name=sa] {background:"+color+";} nav a {background:"+color+";} nav a:hover, .active{color:"+color+"; background:#fff;} input[type=text]{border:1px solid "+color+";} .btn, .reverse {background: "+color+";} .reverse:hover {color: "+color+"; background:#fff}";
-    localStorage.setItem("color", color);    
+    localStorage.setItem("color", color);
 }
 </script>
+<a id="war_in_ukraine" href="https://war.ukraine.ua/" target="_blank">War in Ukraine</a>
 <div class="wrap">
 <header>
 <h1><a href="{{.Site.BaseURL}}" title="Return to the homepage">{{.Site.Title}}</a></h1>
