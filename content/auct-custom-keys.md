@@ -9,7 +9,7 @@ AucT Custom Keys Generator - simple online custom keys generator.
 
 ### Guide:
 
-1. Go to [https://dotacustomkeys.appspot.com/](https://dotacustomkeys.appspot.com/)
+1. Go to [https://dotacustomkeys.auct.eu/](https://dotacustomkeys.auct.eu/)
 2. Select your preferred keys
 3. Press Generate and save file to your WarCraft III root folder
 4. WarCraft III -> Options -> Gameplay -> Enable "Custom Keyboard Shortcuts"
@@ -18,4 +18,4 @@ AucT Custom Keys Generator - simple online custom keys generator.
 
 To disable them, simply de-activate the "Custom Keyboard Shortcuts" option.
 
-[View](https://dotacustomkeys.appspot.com/ "AucT CustomKeys Genrator")
+[View](https://dotacustomkeys.auct.eu/ "AucT CustomKeys Genrator")
